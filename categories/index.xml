@@ -8,10 +8,19 @@
     <language>ko-KR</language>
     <managingEditor>gkfka6484@gmail.com (배하람)</managingEditor>
     <webMaster>gkfka6484@gmail.com (배하람)</webMaster>
-    <lastBuildDate>Tue, 09 Jul 2019 12:10:49 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2019 17:44:55 +0900</lastBuildDate>
     
 	<atom:link href="https://baeharam.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://baeharam.github.io/categories/javascript/</link>
+      <pubDate>Thu, 11 Jul 2019 17:44:55 +0900</pubDate>
+      <author>gkfka6484@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/categories/javascript/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>알고리즘</title>
