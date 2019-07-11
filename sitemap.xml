@@ -4,7 +4,54 @@
   
   <url>
     <loc>https://baeharam.github.io/categories/</loc>
-    <lastmod>2019-07-08T17:38:54+09:00</lastmod>
+    <lastmod>2019-07-09T12:10:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/posts/</loc>
+    <lastmod>2019-07-09T12:10:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/tags/</loc>
+    <lastmod>2019-07-09T12:10:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/posts/algorithm/lazy-propagation/</loc>
+    <lastmod>2019-07-09T12:10:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/tags/%EB%A0%88%EC%9D%B4%EC%A7%80-%ED%94%84%EB%A1%9C%ED%8D%BC%EA%B2%8C%EC%9D%B4%EC%85%98/</loc>
+    <lastmod>2019-07-09T12:10:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/</loc>
+    <lastmod>2019-07-09T12:10:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/tags/%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8-%ED%8A%B8%EB%A6%AC/</loc>
+    <lastmod>2019-07-09T12:10:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</loc>
+    <lastmod>2019-07-09T12:10:49+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</loc>
+    <lastmod>2019-07-09T12:10:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -15,19 +62,7 @@
   </url>
   
   <url>
-    <loc>https://baeharam.github.io/posts/</loc>
-    <lastmod>2019-07-08T17:38:54+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://baeharam.github.io/tags/</loc>
-    <lastmod>2019-07-08T17:38:54+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://baeharam.github.io/posts/kmp/</loc>
+    <loc>https://baeharam.github.io/posts/algorithm/kmp/</loc>
     <lastmod>2019-07-08T17:38:54+09:00</lastmod>
   </url>
   
@@ -38,25 +73,7 @@
   </url>
   
   <url>
-    <loc>https://baeharam.github.io/</loc>
-    <lastmod>2019-07-08T17:38:54+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://baeharam.github.io/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</loc>
-    <lastmod>2019-07-08T17:38:54+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://baeharam.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</loc>
-    <lastmod>2019-07-08T17:38:54+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://baeharam.github.io/posts/extended-euclidean/</loc>
+    <loc>https://baeharam.github.io/posts/algorithm/extended-euclidean/</loc>
     <lastmod>2019-07-08T17:35:22+09:00</lastmod>
   </url>
   
