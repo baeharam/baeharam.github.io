@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts  | 배하람 블로그</title>
+  <meta name="description" content="desribe-your-site 'Posts'을 한 번 살펴보세요.">
+  <meta property="og:title" content="Posts">
+  
+  <meta property="og:type" content="website">
+  
+  <meta property="og:description" content="desribe-your-site 'Posts'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://baeharam.github.io/posts/">
+  <meta property="og:site_name" content="배하람 블로그">
+  
+  <meta property="og:image" content="https://baeharam.github.io/images/thumbnail.png">
+  
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://baeharam.github.io/posts/">
+  <link rel="alternate" type="application/rss+xml" href="https://baeharam.github.io/posts/index.xml" title="배하람 블로그" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-X');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">배하람 블로그</a></li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>       
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+<div class="container">
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/algorithm/kmp/" title="[알고리즘] KMP 알고리즘">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>2019년 07월 08일 17시 38분</time>
+        <h1>[알고리즘] KMP 알고리즘</h1>
+      </div>
+    </a>
+  </div>
+  
+  <div>
+    다른 분야도 약하긴 하지만, 문자열이 상당히 약하기 때문에 전에 대충 공부했던 KMP를 다시 꺼내들어서 공부했다. 상당히 어려운 알고리즘이었고 이해하는데 꽤 오랜 시간이 걸렸다. 까먹으면 안되겠지만 혹시 몰라서 까먹을 나중을 위해서 공들여 정리하고자 한다.
+개요 KMP 알고리즘은 어떤 문자열 $H$와 $S$가 주어졌고 $H$가 $S$보다 긴 경우에, $H$ 안에 $S$가 포함되어 있는지를 탐색하는 알고리즘이다. 자, 생각을 해보자. 예를 들어 단순 브루트 포스로 $S$를 탐색한다면 상당히 오랜 시간이 걸릴 수밖에 없다.
+예를 들어, ABAABAA라는 문자열 $H$에서 부분문자열 ABAC를 찾기 위해선 아래와 같이 찾아야 한다.
+    
+    <a href="/posts/algorithm/kmp/" class="summary-more">더보기</a>
+    
+  </div>
+</div>
+
+  <hr class="summary-sep" />
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/algorithm/extended-euclidean/" title="[알고리즘] 확장 유클리드 알고리즘">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>2019년 07월 08일 17시 35분</time>
+        <h1>[알고리즘] 확장 유클리드 알고리즘</h1>
+      </div>
+    </a>
+  </div>
+  
+  <div>
+    유클리드 호제법(Euclidean algorithm) 정의 유클리드 호제법(= 유클리드 알고리즘)은 두 정수 사이의 최대공약수를 보다 효과적으로 구하는 방법으로 두 정수 $a,b$ 가 존재할 때 다음 식을 만족하는 방법론을 일컫는 말이다. $$ GCD(A,B) = GCD(B,r) $$ 이 때 $A\gt B$ 가 성립하며 $A\equiv r\ (mod\ B)$ 를 조건으로 한다.
+증명 두 정수 $A,B(A \gt B)$ 의 최대공약수(GCD)를 $G$ 라고 하자. $G$ 는 공약수이므로 두 서로소 $a,b$ 에 대해 다음 식이 성립한다. $$ A=aG, B=bG $$ $A$ 를 $B$ 로 나눈 나머지를 $r$ , 몫을 $q$ 라고 하면 $A=qB+r\ (0\le r \lt \lvert B \rvert)$ 를 만족한다.
+    
+    <a href="/posts/algorithm/extended-euclidean/" class="summary-more">더보기</a>
+    
+  </div>
+</div>
+
+  <hr class="summary-sep" />
+  
+</div>
+<div class="paging">
+  
+  <a href="/posts/" rel="prev">
+    이전
+    <i class="fa fa-caret-left" aria-hidden="true"></i>
+  </a>
+  
+  <span class="page">
+    페이지 2 / 2
+  </span>
+  
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+</footer>
+</body>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+</html>
+

@@ -68,6 +68,56 @@
 
   <div class="post">
   <div class="post-title">
+    <a href="https://baeharam.github.io/posts/javascript/jsfunctional-programming/" title="[Javascript] 함수형 프로그래밍의 기본">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>2019년 07월 12일 17시 14분</time>
+        <h1>[Javascript] 함수형 프로그래밍의 기본</h1>
+      </div>
+    </a>
+  </div>
+  
+  <div class="cover-image">
+    <a href="https://baeharam.github.io/posts/javascript/jsfunctional-programming/" title="[Javascript] 함수형 프로그래밍의 기본">
+      <img src="/images/cover/javascript.jpeg" />
+    </a>
+  </div>
+  
+  <div>
+    개념 함수형 프로그래밍이란 연산할 대상이 &ldquo;함수&rdquo;가 되는 프로그래밍 패러다임으로 내부의 데이터와 상태를 그대로 둔 채 여러가지의 함수를 조합하여 작업을 수행하는 방식이다. 선언형 프로그래밍(Declarative Programming)의 한 종류로 기존의 절차지향 프로그래밍, 객체지향 프로그래밍이 속하는 명령형 프로그래밍(Imperative Programming)과는 다른 부류이다. 기존에 나는 명령형 프로그래밍으로 공부해왔기 때문에 이 개념이 익숙치 않고 이를 위해서 계속 정리하고자 한다.
+순수 함수(Pure Function) 순수함수는 말 그대로 순수한 함수, 즉 외부의 요인을 건드리지 않은채 매개변수를 받아 자신에게 정해진 로직만을 처리하는 함수를 말한다.
+    
+    <a href="/posts/javascript/jsfunctional-programming/" class="summary-more">더보기</a>
+    
+  </div>
+</div>
+
+  <hr class="summary-sep" />
+
+  <div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/data-structure/heap/" title="[자료구조] 힙(Heap)">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>2019년 07월 12일 10시 48분</time>
+        <h1>[자료구조] 힙(Heap)</h1>
+      </div>
+    </a>
+  </div>
+  
+  <div>
+    힙의 정의 힙(Heap)이란 완전 이진 트리의 한 종류로 최댓값이나 최솟값을 빠르게 찾아내기 위해 고안된 자료구조이다. 힙의 각 노드는 키(Key)라는 값으로 구성되며 부모노드와 자식노드와의 관계는 다음이 성립한다.
+ A가 부모노드, B가 자식노드일 경우 A의 키 값과 B의 키 값에는 대소관계가 주어진다.  힙은 자식 노드에 따라 여러가지 종류로 구분되지만 대부분 자식 노드 2개를 갖는 이진 힙(Binary Heap)을 사용하며 우선순위 큐(Priority Queue)의 구현체로 이용되거나 힙 정렬(Heap Sort)에 이용된다. 우선순위 큐가 사용되는 알고리즘으로는 최단경로를 찾는 다익스트라(Dijkstra) 알고리즘이 존재한다.
+    
+    <a href="/posts/data-structure/heap/" class="summary-more">더보기</a>
+    
+  </div>
+</div>
+
+  <hr class="summary-sep" />
+
+  <div class="post">
+  <div class="post-title">
     <a href="https://baeharam.github.io/posts/javascript/js%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" title="[Javascript] 객체지향 프로그래밍의 기본">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">
@@ -202,57 +252,17 @@ Lexical scoping은 기존 함수 호출에 따른 dynamic scoping과는 반대�
 
   <hr class="summary-sep" />
 
-  <div class="post">
-  <div class="post-title">
-    <a href="https://baeharam.github.io/posts/algorithm/kmp/" title="[알고리즘] KMP 알고리즘">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>2019년 07월 08일 17시 38분</time>
-        <h1>[알고리즘] KMP 알고리즘</h1>
-      </div>
-    </a>
-  </div>
-  
-  <div>
-    다른 분야도 약하긴 하지만, 문자열이 상당히 약하기 때문에 전에 대충 공부했던 KMP를 다시 꺼내들어서 공부했다. 상당히 어려운 알고리즘이었고 이해하는데 꽤 오랜 시간이 걸렸다. 까먹으면 안되겠지만 혹시 몰라서 까먹을 나중을 위해서 공들여 정리하고자 한다.
-개요 KMP 알고리즘은 어떤 문자열 $H$와 $S$가 주어졌고 $H$가 $S$보다 긴 경우에, $H$ 안에 $S$가 포함되어 있는지를 탐색하는 알고리즘이다. 자, 생각을 해보자. 예를 들어 단순 브루트 포스로 $S$를 탐색한다면 상당히 오랜 시간이 걸릴 수밖에 없다.
-예를 들어, ABAABAA라는 문자열 $H$에서 부분문자열 ABAC를 찾기 위해선 아래와 같이 찾아야 한다.
-    
-    <a href="/posts/algorithm/kmp/" class="summary-more">더보기</a>
-    
-  </div>
-</div>
-
-  <hr class="summary-sep" />
-
-  <div class="post">
-  <div class="post-title">
-    <a href="https://baeharam.github.io/posts/algorithm/extended-euclidean/" title="[알고리즘] 확장 유클리드 알고리즘">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>2019년 07월 08일 17시 35분</time>
-        <h1>[알고리즘] 확장 유클리드 알고리즘</h1>
-      </div>
-    </a>
-  </div>
-  
-  <div>
-    유클리드 호제법(Euclidean algorithm) 정의 유클리드 호제법(= 유클리드 알고리즘)은 두 정수 사이의 최대공약수를 보다 효과적으로 구하는 방법으로 두 정수 $a,b$ 가 존재할 때 다음 식을 만족하는 방법론을 일컫는 말이다. $$ GCD(A,B) = GCD(B,r) $$ 이 때 $A\gt B$ 가 성립하며 $A\equiv r\ (mod\ B)$ 를 조건으로 한다.
-증명 두 정수 $A,B(A \gt B)$ 의 최대공약수(GCD)를 $G$ 라고 하자. $G$ 는 공약수이므로 두 서로소 $a,b$ 에 대해 다음 식이 성립한다. $$ A=aG, B=bG $$ $A$ 를 $B$ 로 나눈 나머지를 $r$ , 몫을 $q$ 라고 하면 $A=qB+r\ (0\le r \lt \lvert B \rvert)$ 를 만족한다.
-    
-    <a href="/posts/algorithm/extended-euclidean/" class="summary-more">더보기</a>
-    
-  </div>
-</div>
-
-  <hr class="summary-sep" />
-
 
 <div class="paging">
   
   <span class="page">
-    페이지 1 / 1
+    페이지 1 / 2
   </span>
+  
+  <a href="/page/2/" rel="next">
+    <i class="fa fa-caret-right" aria-hidden="true"></i>
+    
+  </a>
   
 </div>
 
