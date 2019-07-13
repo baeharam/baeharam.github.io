@@ -253,6 +253,18 @@ img {
   color: white;
 }
 
+.post .post-content img.center {
+    display: block;
+    margin: 0.7rem auto;
+}
+
+img[src$='#center'] {
+    display: block;
+    margin: 2rem auto;
+}
+
+
+
 .post .post-content pre {
   text-align: center;
   position: relative;

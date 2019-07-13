@@ -96,12 +96,47 @@
 
   <div class="post">
   <div class="post-title">
+    <a href="https://baeharam.github.io/posts/data-structure/hash-table/" title="[자료구조] 해시 테이블(Hash Table)">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>2019년 07월 12일 11시 25분</time>
+        <h1>[자료구조] 해시 테이블(Hash Table)</h1>
+      </div>
+    </a>
+  </div>
+  
+  <div class="cover-image">
+    <a href="https://baeharam.github.io/posts/data-structure/hash-table/" title="[자료구조] 해시 테이블(Hash Table)">
+      <img src="images/cover/data%20structure.png" />
+    </a>
+  </div>
+  
+  <div>
+    해싱이란? (Hashing) 해싱이란 임의의 길이의 값을 해시함수(Hash Function)를 사용하여 고정된 크기의 값으로 변환하는 작업을 말한다.
+그림 출처
+위 그림에서 dog 라는 문자열을 해시함수를 이용해 새로운 값으로 변환한 것을 볼 수 있는데 이 경우엔 암호화에 쓰이는 해시 알고리즘인 MD5를 사용한 것이다. 하지만 여기서 다룰 것은 암호화에 쓰인 방식이 아닌 자료구조로 사용하고자 하는 해시 테이블을 다루기 때문에 정수값으로 변환되는 해시 알고리즘을 사용한다. 해싱을 사용하여 데이터를 저장하는 자료구조를 해시 테이블(Hash Table)이라고 하며 이는 기존 자료구조인 이진탐색트리나 배열에 비해서 굉장히 빠른 속도로 탐색, 삽입, 삭제를 할 수 있기 때문에 컴퓨터 공학도라면 반드시 알아야 한다.
+    
+    <a href="/posts/data-structure/hash-table/" class="summary-more">더보기</a>
+    
+  </div>
+</div>
+
+  <hr class="summary-sep" />
+
+  <div class="post">
+  <div class="post-title">
     <a href="https://baeharam.github.io/posts/data-structure/heap/" title="[자료구조] 힙(Heap)">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">
         <time>2019년 07월 12일 10시 48분</time>
         <h1>[자료구조] 힙(Heap)</h1>
       </div>
+    </a>
+  </div>
+  
+  <div class="cover-image">
+    <a href="https://baeharam.github.io/posts/data-structure/heap/" title="[자료구조] 힙(Heap)">
+      <img src="images/cover/data%20structure.png" />
     </a>
   </div>
   
@@ -225,27 +260,6 @@ Lexical scoping은 기존 함수 호출에 따른 dynamic scoping과는 반대�
 종류  전역 실행 컨텍스트 (Global Execution Context, GEC)  GEC는 브라우저에서 자바스크립트를 처음 로드할 때 생성되는 EC로 어떠한 함수나 객체에도 속하지 않고 전역공간에 놓인 모든 코드들이 속하는 EC이다.
     
     <a href="/posts/javascript/jsexecution-context/" class="summary-more">더보기</a>
-    
-  </div>
-</div>
-
-  <hr class="summary-sep" />
-
-  <div class="post">
-  <div class="post-title">
-    <a href="https://baeharam.github.io/posts/algorithm/lazy-propagation/" title="[알고리즘] Lazy Propagation">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>2019년 07월 09일 12시 10분</time>
-        <h1>[알고리즘] Lazy Propagation</h1>
-      </div>
-    </a>
-  </div>
-  
-  <div>
-    개념 기존 세그먼트 트리에서 하나의 리프노드를 업데이트 할 때 $O(lgN)$ 이 걸리기 때문에 구간 업데이트에 관련된 문제가 나올 경우 최대 $O(NlgN)$ 이 걸려서 시간초과를 받게 된다. 따라서 이를 위해 다른 알고리즘이 필요한데 바로 이러한 구간 업데이트를 단 $O(lgN)$ 만에 수행할 수 있는 테크닉이 lazy propagation이다. 이름의 뜻 그대로 게으르게(lazy) 전파(propagation) 한다는 것으로 특정 업데이트 구간에 포함되는 노드들에게 나중에 전파시킬 값을 저장해 둠으로써 다음 업데이트나 쿼리를 할 때 마다 자식노드들 한테만 전파해주면 되게 된다.
-    
-    <a href="/posts/algorithm/lazy-propagation/" class="summary-more">더보기</a>
     
   </div>
 </div>
