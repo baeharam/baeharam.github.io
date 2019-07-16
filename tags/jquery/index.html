@@ -3,22 +3,22 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Categories  | 배하람 블로그</title>
-  <meta name="description" content="desribe-your-site 'Categories'을 한 번 살펴보세요.">
-  <meta property="og:title" content="Categories">
+  <title>jQuery  | 배하람 블로그</title>
+  <meta name="description" content="desribe-your-site 'jQuery'을 한 번 살펴보세요.">
+  <meta property="og:title" content="jQuery">
   
   <meta property="og:type" content="website">
   
-  <meta property="og:description" content="desribe-your-site 'Categories'을 한 번 살펴보세요.">
-  <meta property="og:url" content="https://baeharam.github.io/categories/">
+  <meta property="og:description" content="desribe-your-site 'jQuery'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://baeharam.github.io/tags/jquery/">
   <meta property="og:site_name" content="배하람 블로그">
   
   <meta property="og:image" content="https://baeharam.github.io/images/thumbnail.png">
   
   
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://baeharam.github.io/categories/">
-  <link rel="alternate" type="application/rss+xml" href="https://baeharam.github.io/categories/index.xml" title="배하람 블로그" />
+  <link rel="canonical" href="https://baeharam.github.io/tags/jquery/">
+  <link rel="alternate" type="application/rss+xml" href="https://baeharam.github.io/tags/jquery/index.xml" title="배하람 블로그" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
   <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
@@ -63,83 +63,60 @@
     </div>
   </div>
   <div class="container">    
+<div class="container">
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/jquery/jquery-analysis2/" title="[jQuery] jQuery 1.0 소스코드 분석 (2)">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>2019년 07월 16일 20시 10분</time>
+        <h1>[jQuery] jQuery 1.0 소스코드 분석 (2)</h1>
+      </div>
+    </a>
+  </div>
+  
+  <div>
+    this.get() 여기서의 this 는 새로 생성할 jQuery 객체에 바인딩 되기 때문에 메서드 get() 은 jQuery.prototype.get() 을 말한다. 따라서 해당 소스코드를 봐야 한다.
+function( num ) { // Watch for when an array (of elements) is passed in if ( num &amp;&amp; num.constructor == Array ) { // Use a tricky hack to make the jQuery object // look and feel like an array this.length = 0; [].push.apply( this, num ); return this; } else return num == undefined ?
+    
+    <a href="/posts/jquery/jquery-analysis2/" class="summary-more">더보기</a>
+    
+  </div>
+</div>
 
-<div class="categories">
-  <h1>CATEGORIES</h1>
-  <p>카테고리 별 글을 볼 수 있습니다. 최근 글은 제목을 클릭하여 바로 읽을 수 있습니다.</p>
-  <ul>
+  <hr class="summary-sep" />
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/jquery/jquery-analysis1/" title="[jQuery] jQuery 1.0 소스코드 분석 (1)">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>2019년 07월 16일 17시 03분</time>
+        <h1>[jQuery] jQuery 1.0 소스코드 분석 (1)</h1>
+      </div>
+    </a>
+  </div>
+  
+  <div>
+    소스 코드
+jQuery 객체와 변수 $의 매핑 스크립트가 로드 되면서 jQuery 객체가 선언되고 해당 객체는 변수 $ 에 매핑된다.
+function jQuery(a,c) { ... } // Map the jQuery namespace to the '$' one var $ = jQuery;  jQuery.prototype 객체 변경 jQuery.fn = jQuery.prototype = { jquery: &quot;$Rev: 509 $&quot;, size: ~ get: ~ ... add: ~ is: ~ domManip: ~ pushStack: ~ };  jQuery.prototype 객체를 변경함과 동시에 jQuery.
     
+    <a href="/posts/jquery/jquery-analysis1/" class="summary-more">더보기</a>
     
-    
-    <li>
-      <span class="title">
-        <a href="https://baeharam.github.io/categories/javascript">
-          <i class="fa fa-angle-right icon" aria-hidden="true"></i>
-          JAVASCRIPT (5개)
-        </a>
-      </span>
-      <span class="links">
-        
-        <a href="https://baeharam.github.io/posts/javascript/jsfunctional-programming/">
-          <small>2019-07-12</small>
-          <span class="recent-title">[Javascript] 함수형 프로그래밍의 기본</span>
-        </a>
-        
-      </span>
-    </li>
-    
-    <li>
-      <span class="title">
-        <a href="https://baeharam.github.io/categories/jquery">
-          <i class="fa fa-angle-right icon" aria-hidden="true"></i>
-          JQUERY (2개)
-        </a>
-      </span>
-      <span class="links">
-        
-        <a href="https://baeharam.github.io/posts/jquery/jquery-analysis2/">
-          <small>2019-07-16</small>
-          <span class="recent-title">[jQuery] jQuery 1.0 소스코드 분석 (2)</span>
-        </a>
-        
-      </span>
-    </li>
-    
-    <li>
-      <span class="title">
-        <a href="https://baeharam.github.io/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">
-          <i class="fa fa-angle-right icon" aria-hidden="true"></i>
-          알고리즘 (3개)
-        </a>
-      </span>
-      <span class="links">
-        
-        <a href="https://baeharam.github.io/posts/algorithm/lazy-propagation/">
-          <small>2019-07-09</small>
-          <span class="recent-title">[알고리즘] Lazy Propagation</span>
-        </a>
-        
-      </span>
-    </li>
-    
-    <li>
-      <span class="title">
-        <a href="https://baeharam.github.io/categories/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">
-          <i class="fa fa-angle-right icon" aria-hidden="true"></i>
-          자료구조 (2개)
-        </a>
-      </span>
-      <span class="links">
-        
-        <a href="https://baeharam.github.io/posts/data-structure/hash-table/">
-          <small>2019-07-12</small>
-          <span class="recent-title">[자료구조] 해시 테이블(Hash Table)</span>
-        </a>
-        
-      </span>
-    </li>
-    
-  </ul>
+  </div>
+</div>
+
+  <hr class="summary-sep" />
+  
+</div>
+<div class="paging">
+  
+  <span class="page">
+    페이지 1 / 1
+  </span>
+  
 </div>
 
 <div class="go-top">
