@@ -8,10 +8,20 @@
     <language>ko-KR</language>
     <managingEditor>gkfka6484@gmail.com (배하람)</managingEditor>
     <webMaster>gkfka6484@gmail.com (배하람)</webMaster>
-    <lastBuildDate>Tue, 16 Jul 2019 20:10:26 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 16:37:28 +0900</lastBuildDate>
     
 	<atom:link href="https://baeharam.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[CSS] line-height</title>
+      <link>https://baeharam.github.io/posts/css/css-line-height/</link>
+      <pubDate>Wed, 17 Jul 2019 16:37:28 +0900</pubDate>
+      <author>gkfka6484@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/posts/css/css-line-height/</guid>
+      <description>원래의 목적  The line-height CSS property sets the height of a line box. It&amp;rsquo;s commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element. On non-replaced inline elements, it specifies the height that is used to calculate line box height.
+line-height 는 line box의 높이를 설정하는 CSS의 속성이다. 이는 보통 텍스트의 줄 간격 사이를 정하기 위해 사용된다.</description>
+    </item>
     
     <item>
       <title>[jQuery] jQuery 1.0 소스코드 분석 (2)</title>
