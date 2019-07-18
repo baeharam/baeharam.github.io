@@ -13,6 +13,10 @@ img {
   max-width: 100%;
 }
 
+strong {
+  font-weight: 800;
+}
+
 /* Navbar */
 .navbar {
   height: 40px;
@@ -113,23 +117,13 @@ img {
   background: #f4f4f4;
 }
 
-/* Summary */
-.summary-sep {
-  border: 0;
-  height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  margin: 20px auto;
-  width: 120px;
-}
-
 /* Post */
 .post {
   margin: 0 auto;
-  padding: 10px;
+  padding: 20px;
   max-width: 940px;
   background: white;
-  border: 5px solid black;
+  border: 2px solid #333333;
 }
 .post a {
   text-decoration: none;
@@ -160,10 +154,10 @@ img {
 }
 .post .post-meta h1 {
   line-height: 1.2em;
-  border-bottom: 2px dashed black;
   display: inline-block;
 }
 .post .post-meta time {
+  font-size: 1.2em;
   margin-bottom: 0px;
   display: block;
 }
@@ -235,6 +229,7 @@ img {
   background-color: #f5f5f5;
   padding: 3px 5px;
   border-radius: 4px;
+  max-width: 80vw;
   font-size: 1.3em;
   color: #c7254e;
 }
