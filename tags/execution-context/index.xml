@@ -6,8 +6,8 @@
     <description>Recent content in Execution Context on 배하람 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>gkfka6484@gmail.com (배하람)</managingEditor>
-    <webMaster>gkfka6484@gmail.com (배하람)</webMaster>
+    <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
+    <webMaster>hisfedev@gmail.com (배하람)</webMaster>
     <lastBuildDate>Wed, 10 Jul 2019 09:27:48 +0900</lastBuildDate>
     
 	<atom:link href="https://baeharam.github.io/tags/execution-context/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>[Javascript] Execution Context</title>
       <link>https://baeharam.github.io/posts/javascript/jsexecution-context/</link>
       <pubDate>Wed, 10 Jul 2019 09:27:48 +0900</pubDate>
-      <author>gkfka6484@gmail.com (배하람)</author>
+      <author>hisfedev@gmail.com (배하람)</author>
       <guid>https://baeharam.github.io/posts/javascript/jsexecution-context/</guid>
       <description>정의 ECMAScript 에서 정의하는 EC(Execution Context)는 다음과 같이 표현한다.
  Execution context (abbreviated form — EC) is the abstract concept used by ECMA-262 specification for typification and differentiation of an executable code.

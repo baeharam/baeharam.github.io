@@ -6,8 +6,8 @@
     <description>Recent content in ES6 on 배하람 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>gkfka6484@gmail.com (배하람)</managingEditor>
-    <webMaster>gkfka6484@gmail.com (배하람)</webMaster>
+    <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
+    <webMaster>hisfedev@gmail.com (배하람)</webMaster>
     <lastBuildDate>Fri, 19 Jul 2019 20:25:19 +0900</lastBuildDate>
     
 	<atom:link href="https://baeharam.github.io/tags/es6/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <title>[Javascript] Symbol</title>
       <link>https://baeharam.github.io/posts/javascript/js-symbol/</link>
       <pubDate>Fri, 19 Jul 2019 20:25:19 +0900</pubDate>
-      <author>gkfka6484@gmail.com (배하람)</author>
+      <author>hisfedev@gmail.com (배하람)</author>
       <guid>https://baeharam.github.io/posts/javascript/js-symbol/</guid>
       <description>개요 Symbol은 ES6에서 새로나온 원시타입(Primitive Type)으로 기존 6가지 타입에 추가된 것이다. Symbol이 필요한 이유는 객체내의 고유한 키값을 갖는 프로퍼티를 정의하기 위함이다. 이 특성이 필요한 이유는 특정 애니메이션이나 로직을 캐치하기 위해 플래그(Flag)를 설정할 때 기존 방법들(불리안 값, 난수, 등)에 문제가 있기 때문이다.
 생성 Symbol을 생성할 때는 타입이기 때문에 new 를 생략한다.
