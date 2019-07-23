@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>우수마을 on 배하람 블로그</title>
+    <link>https://baeharam.github.io/tags/%EC%9A%B0%EC%88%98%EB%A7%88%EC%9D%84/</link>
+    <description>Recent content in 우수마을 on 배하람 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
+    <webMaster>hisfedev@gmail.com (배하람)</webMaster>
+    <lastBuildDate>Tue, 23 Jul 2019 11:15:24 +0900</lastBuildDate>
+    
+	<atom:link href="https://baeharam.github.io/tags/%EC%9A%B0%EC%88%98%EB%A7%88%EC%9D%84/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[PS] BOJ1949: 우수마을</title>
+      <link>https://baeharam.github.io/posts/ps/ps-boj1949/</link>
+      <pubDate>Tue, 23 Jul 2019 11:15:24 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/posts/ps/ps-boj1949/</guid>
+      <description>백준 1949번
+사회망 서비스 문제와 비슷한 트리 dp 문제인데 어렵게 느껴져서 그런지 점화식을 찾지 못했다. 질문란의 힌트를 보고 점화식을 이해한 후 재귀+메모이제이션으로 해결했다.
+dp1[i] = i번 노드를 루트로 하는 서브트리에서 i번 노드를 선택했을 때의 최댓값 dp2[i] = i번 노드를 루트로 하는 서브트리에서 i번 노드를 선택하지 않았을 때의 최댓값  이렇게 dp 배열 2개를 만든 뒤 DFS로 탐색하면서 메모이제이션 돌리면 된다. 이 문제의 핵심은 3번째 조건인 &amp;ldquo;우수마을로 선정되지 않은 마을은 반드시 우수마을과 인접해야 한다.</description>
+    </item>
+    
+  </channel>
+</rss>

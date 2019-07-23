@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PS] BOJ1949: 우수마을  | 배하람 블로그</title>
+  <meta name="description" content="개발을 기록하는 블로그 '[PS] BOJ1949: 우수마을'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[PS] BOJ1949: 우수마을">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-07-23">
+  
+  <meta property="og:description" content="개발을 기록하는 블로그 '[PS] BOJ1949: 우수마을'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://baeharam.github.io/posts/ps/ps-boj1949/">
+  <meta property="og:site_name" content="배하람 블로그">
+  
+  <meta property="og:image" content="https://baeharam.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="BOJ1949">
+  
+  <meta property="og:tags" content="우수마을">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://baeharam.github.io/posts/ps/ps-boj1949/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144188943-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-144188943-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144188943-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+<body>
+  <div class="navbar">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">배하람 블로그</a></li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>       
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/ps/ps-boj1949/">
+      <div class="post-meta">
+        <time>2019년 07월 23일 11시 15분</time>
+        <h1>[PS] BOJ1949: 우수마을</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    <p><a href="https://www.acmicpc.net/problem/1949">백준 1949번</a></p>
+
+<p>사회망 서비스 문제와 비슷한 트리 dp 문제인데 어렵게 느껴져서 그런지 점화식을 찾지 못했다. 질문란의 힌트를 보고 점화식을 이해한 후 재귀+메모이제이션으로 해결했다.</p>
+
+<pre><code>dp1[i] = i번 노드를 루트로 하는 서브트리에서 i번 노드를 선택했을 때의 최댓값
+dp2[i] = i번 노드를 루트로 하는 서브트리에서 i번 노드를 선택하지 않았을 때의 최댓값
+</code></pre>
+
+<p>이렇게 dp 배열 2개를 만든 뒤 DFS로 탐색하면서 메모이제이션 돌리면 된다. 이 문제의 핵심은 3번째 조건인 &ldquo;우수마을로 선정되지 않은 마을은 반드시 우수마을과 인접해야 한다.&rdquo; 를 고려하지 않아도 답을 낼 수 있다는 것이다. 그 이유는 인접한 마을 중에 우수마을이 아예 없는 경우에는 2번 조건인 &ldquo;우수마을과 우수마을은 인접해서는 안된다.&ldquo;를 만족하면서 해당 마을을 우수마을로 선정하는 것이 항상 최댓값이기 때문이다. 어찌보면 항상 최댓값을 도출해야 하기 때문에 당연한 것이라고 할 수 있다.</p>
+
+<pre><code class="language-c++">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int n,v1,v2;
+const int SIZE = 10001;
+int cost[SIZE], dp1[SIZE], dp2[SIZE], visited[SIZE];
+vector&lt;int&gt; tree[SIZE];
+
+int solve(int root, bool choice)
+{
+    visited[root] = 1;
+    int &amp;ret = choice ? dp1[root] : dp2[root];
+    if(ret != -1) return ret;
+    ret = choice ? cost[root] : 0;
+    for(int i=0; i&lt;tree[root].size(); i++){
+        int next = tree[root][i];
+        if(!visited[next]){
+            if(choice) ret += solve(next,false);
+            else ret += max(solve(next,false),solve(next,true));
+        }
+    }
+    visited[root] = 0;
+    return ret;
+}
+
+int main(void)
+{
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1; i&lt;=n; i++) scanf(&quot;%d&quot;,&amp;cost[i]);
+    for(int i=0; i&lt;n-1; i++){
+        scanf(&quot;%d%d&quot;,&amp;v1,&amp;v2);
+        tree[v1].push_back(v2);
+        tree[v2].push_back(v1);
+    }
+    memset(dp1,-1,sizeof(dp1));
+    memset(dp2,-1,sizeof(dp2));
+    printf(&quot;%d\n&quot;,max(solve(1,true),solve(1,false)));
+    return 0;
+}
+</code></pre>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fbaeharam.github.io%2fposts%2fps%2fps-boj1949%2f&t=%5bPS%5d%20BOJ1949%3a%20%ec%9a%b0%ec%88%98%eb%a7%88%ec%9d%84"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fps%2fps-boj1949%2f&text=%5bPS%5d%20BOJ1949%3a%20%ec%9a%b0%ec%88%98%eb%a7%88%ec%9d%84&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fps%2fps-boj1949%2f&title=%5bPS%5d%20BOJ1949%3a%20%ec%9a%b0%ec%88%98%eb%a7%88%ec%9d%84"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fps%2fps-boj1949%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:hisfedev@gmail.com">배하람</a>
+      
+      님이
+      <span class="highlight">2019년 07월 23일 11시 15분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_카테고리</span>
+        
+        
+        <a href="https://baeharam.github.io/categories/ps">#PS</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_태그</span>
+        
+        
+        <a href="https://baeharam.github.iotags/boj1949">#BOJ1949</a>
+        
+        <a href="https://baeharam.github.iotags/%EC%9A%B0%EC%88%98%EB%A7%88%EC%9D%84">#우수마을</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <script src="https://utteranc.es/client.js"
+        repo="baeharam/blog-comments"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+  </script>
+  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://baeharam.github.io/posts/ps/ps-boj2291/" rel="prev">
+          <span>[PS] BOJ2291: Sequence</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+</footer>
+</body>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+</html>
+
