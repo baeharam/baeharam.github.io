@@ -8,10 +8,28 @@
     <language>ko-KR</language>
     <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
     <webMaster>hisfedev@gmail.com (배하람)</webMaster>
-    <lastBuildDate>Thu, 25 Jul 2019 09:08:44 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 21 Aug 2019 14:21:16 +0900</lastBuildDate>
     
 	<atom:link href="https://baeharam.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IntersectionObserver</title>
+      <link>https://baeharam.github.io/tags/intersectionobserver/</link>
+      <pubDate>Wed, 21 Aug 2019 14:21:16 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/tags/intersectionobserver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://baeharam.github.io/tags/javascript/</link>
+      <pubDate>Wed, 21 Aug 2019 14:21:16 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Window</title>
@@ -100,15 +118,6 @@
       <pubDate>Fri, 19 Jul 2019 20:25:19 +0900</pubDate>
       <author>hisfedev@gmail.com (배하람)</author>
       <guid>https://baeharam.github.io/tags/es6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Javascript</title>
-      <link>https://baeharam.github.io/tags/javascript/</link>
-      <pubDate>Fri, 19 Jul 2019 20:25:19 +0900</pubDate>
-      <author>hisfedev@gmail.com (배하람)</author>
-      <guid>https://baeharam.github.io/tags/javascript/</guid>
       <description></description>
     </item>
     
