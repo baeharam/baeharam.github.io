@@ -8,10 +8,19 @@
     <language>ko-KR</language>
     <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
     <webMaster>hisfedev@gmail.com (배하람)</webMaster>
-    <lastBuildDate>Wed, 21 Aug 2019 14:21:16 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 14:31:45 +0900</lastBuildDate>
     
 	<atom:link href="https://baeharam.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>git</title>
+      <link>https://baeharam.github.io/categories/git/</link>
+      <pubDate>Tue, 27 Aug 2019 14:31:45 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/categories/git/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Javascript</title>

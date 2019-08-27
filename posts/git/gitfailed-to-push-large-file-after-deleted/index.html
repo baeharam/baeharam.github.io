@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[GIT] 용량이 큰 파일을 삭제했는데도 push가 실패할 때  | 배하람 블로그</title>
+  <meta name="description" content="개발을 기록하는 블로그 '[GIT] 용량이 큰 파일을 삭제했는데도 push가 실패할 때'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[GIT] 용량이 큰 파일을 삭제했는데도 push가 실패할 때">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-08-27">
+  
+  <meta property="og:description" content="개발을 기록하는 블로그 '[GIT] 용량이 큰 파일을 삭제했는데도 push가 실패할 때'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://baeharam.github.io/posts/git/gitfailed-to-push-large-file-after-deleted/">
+  <meta property="og:site_name" content="배하람 블로그">
+  
+  <meta property="og:image" content="https://baeharam.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="git">
+  
+  <meta property="og:tags" content="push">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://baeharam.github.io/posts/git/gitfailed-to-push-large-file-after-deleted/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144188943-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-144188943-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144188943-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+<body>
+  <div class="navbar">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">배하람 블로그</a></li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>       
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/git/gitfailed-to-push-large-file-after-deleted/">
+      <div class="post-meta">
+        <time>2019년 08월 27일 14시 31분</time>
+        <h1>[GIT] 용량이 큰 파일을 삭제했는데도 push가 실패할 때</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    
+
+<p>제목 그대로, 용량이 큰 파일을 올리다가 실패해서 삭제하고 다시 push했는데 실패하는 경우가 종종 있었다. 자주 이런 현상이 발생해서 해결법을 정리하고자 한다.</p>
+
+<h2 id="이런-현상이-발생하는-이유">이런 현상이 발생하는 이유</h2>
+
+<blockquote>
+<p>Git stores the full history of your project, so even if you &lsquo;delete&rsquo; a file from your project, the Git repo still has a copy of the file in it&rsquo;s history, and if you try to push to another repository (like one hosted at GitHub) then Git <em>requires</em> the remote repo has the same history that your local repo does (ie the same big files in it&rsquo;s history).</p>
+</blockquote>
+
+<p>Git은 프로젝트의 히스토리를 저장하기 때문에 로컬에서 큰 용량의 파일을 삭제했다고 해도 히스토리에 해당 파일의 복사본을 가지고 있다. 즉, 원격 저장소와 로컬 저장소의 히스토리가 동일해야 받아들여지기 때문에 히스토리를 비워주어야 한다.</p>
+
+<h2 id="해결방법">해결방법</h2>
+
+<ul>
+<li>로컬에서 해당 파일을 삭제한다.</li>
+<li>삭제한 결과를 커밋한다.</li>
+<li><code>git reset --soft HEAD~N</code> 으로 N개의 커밋이 있다면 해당 커밋을 취소한다.</li>
+<li><code>git commit -sm 'message&quot;</code> 로 다시 커밋한다. (이 작업을 <a href="https://gist.github.com/patik/b8a9dc5cd356f9f6f980">Squash</a> 라고 한다.)</li>
+<li>Squash 된 커밋을 다시 push 한다.</li>
+</ul>
+
+<h2 id="참조">참조</h2>
+
+<ul>
+<li><a href="https://stackoverflow.com/questions/19573031/cant-push-to-github-because-of-large-file-which-i-already-deleted">Can&rsquo;t push to GitHub because of large file which I already deleted</a></li>
+</ul>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fbaeharam.github.io%2fposts%2fgit%2fgitfailed-to-push-large-file-after-deleted%2f&t=%5bGIT%5d%20%ec%9a%a9%eb%9f%89%ec%9d%b4%20%ed%81%b0%20%ed%8c%8c%ec%9d%bc%ec%9d%84%20%ec%82%ad%ec%a0%9c%ed%96%88%eb%8a%94%eb%8d%b0%eb%8f%84%20push%ea%b0%80%20%ec%8b%a4%ed%8c%a8%ed%95%a0%20%eb%95%8c"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fgit%2fgitfailed-to-push-large-file-after-deleted%2f&text=%5bGIT%5d%20%ec%9a%a9%eb%9f%89%ec%9d%b4%20%ed%81%b0%20%ed%8c%8c%ec%9d%bc%ec%9d%84%20%ec%82%ad%ec%a0%9c%ed%96%88%eb%8a%94%eb%8d%b0%eb%8f%84%20push%ea%b0%80%20%ec%8b%a4%ed%8c%a8%ed%95%a0%20%eb%95%8c&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fgit%2fgitfailed-to-push-large-file-after-deleted%2f&title=%5bGIT%5d%20%ec%9a%a9%eb%9f%89%ec%9d%b4%20%ed%81%b0%20%ed%8c%8c%ec%9d%bc%ec%9d%84%20%ec%82%ad%ec%a0%9c%ed%96%88%eb%8a%94%eb%8d%b0%eb%8f%84%20push%ea%b0%80%20%ec%8b%a4%ed%8c%a8%ed%95%a0%20%eb%95%8c"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fgit%2fgitfailed-to-push-large-file-after-deleted%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:hisfedev@gmail.com">배하람</a>
+      
+      님이
+      <span class="highlight">2019년 08월 27일 14시 31분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_카테고리</span>
+        
+        
+        <a href="https://baeharam.github.io/categories/git">#git</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_태그</span>
+        
+        
+        <a href="https://baeharam.github.iotags/git">#git</a>
+        
+        <a href="https://baeharam.github.iotags/push">#push</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <script src="https://utteranc.es/client.js"
+        repo="baeharam/blog-comments"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+  </script>
+  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://baeharam.github.io/posts/javascript/jsintersectionobserver/" rel="prev">
+          <span>[Javascript] Intersection Observer API</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+</footer>
+</body>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+</html>
+
