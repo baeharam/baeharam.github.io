@@ -1,3 +1,4 @@
 [submodule "Redvelvet-Fansite"]
 	path = Redvelvet-Fansite
 	url = https://github.com/baeharam/Redvelvet-Fansite
+    branch = master
