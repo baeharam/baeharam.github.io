@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BOJ2291 on 배하람 블로그</title>
+    <link>https://baeharam.github.io/tags/boj2291/</link>
+    <description>Recent content in BOJ2291 on 배하람 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
+    <webMaster>hisfedev@gmail.com (배하람)</webMaster>
+    <lastBuildDate>Tue, 23 Jul 2019 09:33:54 +0900</lastBuildDate>
+    
+	<atom:link href="https://baeharam.github.io/tags/boj2291/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[PS] BOJ2291: Sequence</title>
+      <link>https://baeharam.github.io/posts/ps/ps-boj2291/</link>
+      <pubDate>Tue, 23 Jul 2019 09:33:54 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/posts/ps/ps-boj2291/</guid>
+      <description>백준 2291번
+$N$ 개의 숫자가 주어지고 해당 숫자를 합해서 $M$ 을 만드는 수열이 여러개 있을 때 오름차순으로 나열했을 때의 $K$ 번째 수열을 구하는 문제이다. 전형적인 dp 트래킹 문제인데 나에겐 너무 어려웠다. 애초에 점화식을 짜는게 어려워서 슬랙에 질문을 했고 다음과 같은 점화식을 통해서 해결하는 것이었다.
+dp[first][len][sum] = 첫째 항이 first이고 길이가 len인 수열의 합을 sum으로 만들 수 있는 수열의 개수  풀이는 여기 를 공부해서 간신히 이해했다. 여기서 내가 이해하지 못했던 부분은 재귀함수의 기저사례인데, first&amp;lt;=sum 일 때 수열을 만들 수 있다고 정의했다.</description>
+    </item>
+    
+  </channel>
+</rss>

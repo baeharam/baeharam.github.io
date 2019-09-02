@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Javascript] 브라우저의 창에 대한 이해  | 배하람 블로그</title>
+  <meta name="description" content="개발을 기록하는 블로그 '[Javascript] 브라우저의 창에 대한 이해'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[Javascript] 브라우저의 창에 대한 이해">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-07-25">
+  
+  <meta property="og:description" content="개발을 기록하는 블로그 '[Javascript] 브라우저의 창에 대한 이해'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://baeharam.github.io/posts/javascript/js-window/">
+  <meta property="og:site_name" content="배하람 블로그">
+  
+  <meta property="og:image" content="https://baeharam.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="Window">
+  
+  <meta property="og:tags" content="scrollHeight">
+  
+  <meta property="og:tags" content="clientHeight">
+  
+  <meta property="og:tags" content="offsetHeight">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://baeharam.github.io/posts/javascript/js-window/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144188943-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-144188943-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144188943-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+<body>
+  <div class="navbar">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">배하람 블로그</a></li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>       
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/javascript/js-window/">
+      <div class="post-meta">
+        <time>2019년 07월 25일 09시 08분</time>
+        <h1>[Javascript] 브라우저의 창에 대한 이해</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    
+
+<p>스크롤 애니메이션을 구현하게 되면서 바닐라 JS로 특정 엘리먼트에 스크롤을 이동시키는 걸 공부했다. 그런데 공부를 할 때 창의 높이에 대한 정보가 무수히 많다는 걸 알게 되었고 이 참에 창의 높이와 너비에 어떤 속성들이 있는지 정리해보고자 한다.</p>
+
+<p><img src="/images/javascript/window/structure.png" class="center"></p>
+
+<h1 id="element-기준">Element 기준</h1>
+
+<h2 id="client">Client</h2>
+
+<ul>
+<li><strong>Element.clientWidth / Element.clientHeight</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Padding</th>
+<th>ScrollBar</th>
+<th>Border</th>
+<th>Margin</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>O</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li><strong>Element.clientLeft / Element.clientTop</strong>
+
+<ul>
+<li>Element.clientLeft = border-left</li>
+<li>Element.clientTop = border-top</li>
+</ul></li>
+</ul>
+
+<h2 id="offset">Offset</h2>
+
+<ul>
+<li><strong>HTMLElement.offsetWidth / HTMLElement.offsetHeight</strong></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Padding</th>
+<th>ScrollBar</th>
+<th>Border</th>
+<th>Margin</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li><strong>HTMLElement.offsetLeft / HTMLElement.offsetTop</strong></li>
+</ul>
+
+<p><code>HTMLElement.offsetParent</code> 기준으로 왼쪽/위에서 얼마나 떨어져있는가에 대한 값으로 <code>position:relative</code> 인 엘리먼트를 찾아서 위로 올라가는데 없으면 시작점이 기준이 된다.</p>
+
+<h2 id="scroll">Scroll</h2>
+
+<ul>
+<li><strong>Element.scrollWidth / Element.scrollHeight</strong></li>
+</ul>
+
+<p>스크롤바를 사용하지 않고도 모든 컨텐츠를 볼 수 있게 하는 너비와 높이, 그러나 경계선(border)은 포함하지 않는다.</p>
+
+<ul>
+<li><strong>Element.scrollLeft / Element.scrollTop</strong></li>
+</ul>
+
+<p>얼마나 스크롤한지에 대한 좌푯값</p>
+
+<h1 id="window-기준">Window 기준</h1>
+
+<ul>
+<li><strong>Window.innerWidth / Window.innerHeight</strong>
+
+<ul>
+<li>메뉴바, 툴바 제외한 안쪽 창 영역의 높이와 너비</li>
+</ul></li>
+<li><strong>Window.outerWidth / Window.outerHeight</strong>
+
+<ul>
+<li>메뉴바, 툴바 모두 포함한 전체 창 영역의 높이와 너비</li>
+</ul></li>
+<li><strong>Window.pageXOffset / Window.pageYOffset</strong>
+
+<ul>
+<li>전체 컨텐츠를 얼마나 스크롤했는가에 대한 값</li>
+</ul></li>
+</ul>
+
+<p>이렇게 타겟 엘리먼트와 윈도우 기준으로 여러가지 창에 관한 속성을 알아봤는데 일단 이해해놓고 필요할 때 레퍼런스 참고해서 쓰면 될 것 같다. 중요한 점은 브라우저의 종류마다 정의하는 방식과 그 이름이 살짝씩 다를 수 있다는 점이다. IE같은 경우 <code>window</code> 대신 <code>document.documentElement</code> 나 <code>document.body</code> 를 사용하는 것이 그 예시이다.</p>
+
+<h2 id="참조">참조</h2>
+
+<ul>
+<li><a href="https://webclub.tistory.com/104">https://webclub.tistory.com/104</a></li>
+<li><a href="https://mommoo.tistory.com/85">https://mommoo.tistory.com/85</a></li>
+<li><a href="https://github.com/jinyowo/JS-Calendar/wiki/**offsetHeight,-innerWidth-와-비슷한-속성들-정리">https://github.com/jinyowo/JS-Calendar/wiki/**offsetHeight,-innerWidth-%EC%99%80-%EB%B9%84%EC%8A%B7%ED%95%9C-%EC%86%8D%EC%84%B1%EB%93%A4-%EC%A0%95%EB%A6%AC</a></li>
+<li><a href="https://stackoverflow.com/a/45897388/11789111">https://stackoverflow.com/a/45897388/11789111</a></li>
+<li>MDN</li>
+</ul>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2fjs-window%2f&t=%5bJavascript%5d%20%eb%b8%8c%eb%9d%bc%ec%9a%b0%ec%a0%80%ec%9d%98%20%ec%b0%bd%ec%97%90%20%eb%8c%80%ed%95%9c%20%ec%9d%b4%ed%95%b4"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2fjs-window%2f&text=%5bJavascript%5d%20%eb%b8%8c%eb%9d%bc%ec%9a%b0%ec%a0%80%ec%9d%98%20%ec%b0%bd%ec%97%90%20%eb%8c%80%ed%95%9c%20%ec%9d%b4%ed%95%b4&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2fjs-window%2f&title=%5bJavascript%5d%20%eb%b8%8c%eb%9d%bc%ec%9a%b0%ec%a0%80%ec%9d%98%20%ec%b0%bd%ec%97%90%20%eb%8c%80%ed%95%9c%20%ec%9d%b4%ed%95%b4"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2fjs-window%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:hisfedev@gmail.com">배하람</a>
+      
+      님이
+      <span class="highlight">2019년 07월 25일 09시 08분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_카테고리</span>
+        
+        
+        <a href="https://baeharam.github.io/categories/javascript">#Javascript</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_태그</span>
+        
+        
+        <a href="https://baeharam.github.iotags/window">#Window</a>
+        
+        <a href="https://baeharam.github.iotags/scrollheight">#scrollHeight</a>
+        
+        <a href="https://baeharam.github.iotags/clientheight">#clientHeight</a>
+        
+        <a href="https://baeharam.github.iotags/offsetheight">#offsetHeight</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <script src="https://utteranc.es/client.js"
+        repo="baeharam/blog-comments"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+  </script>
+  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://baeharam.github.io/posts/ps/ps-boj1949/" rel="prev">
+          <span>[PS] BOJ1949: 우수마을</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://baeharam.github.io/posts/javascript/jsintersectionobserver/" rel="next">
+          <span>[Javascript] Intersection Observer API</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+</footer>
+</body>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+</html>
+

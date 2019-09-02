@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[PS] BOJ2291: Sequence  | 배하람 블로그</title>
+  <meta name="description" content="개발을 기록하는 블로그 '[PS] BOJ2291: Sequence'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[PS] BOJ2291: Sequence">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-07-23">
+  
+  <meta property="og:description" content="개발을 기록하는 블로그 '[PS] BOJ2291: Sequence'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://baeharam.github.io/posts/ps/ps-boj2291/">
+  <meta property="og:site_name" content="배하람 블로그">
+  
+  <meta property="og:image" content="https://baeharam.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="PS">
+  
+  <meta property="og:tags" content="BOJ2291">
+  
+  <meta property="og:tags" content="Sequence">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://baeharam.github.io/posts/ps/ps-boj2291/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144188943-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-144188943-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144188943-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+<body>
+  <div class="navbar">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">배하람 블로그</a></li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>       
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/ps/ps-boj2291/">
+      <div class="post-meta">
+        <time>2019년 07월 23일 09시 33분</time>
+        <h1>[PS] BOJ2291: Sequence</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    <p><a href="https://www.acmicpc.net/problem/2291">백준 2291번</a></p>
+
+<p>$N$ 개의 숫자가 주어지고 해당 숫자를 합해서 $M$ 을 만드는 수열이 여러개 있을 때 오름차순으로 나열했을 때의 $K$ 번째 수열을 구하는 문제이다. 전형적인 dp 트래킹 문제인데 나에겐 너무 어려웠다. 애초에 점화식을 짜는게 어려워서 슬랙에 질문을 했고 다음과 같은 점화식을 통해서 해결하는 것이었다.</p>
+
+<pre><code>dp[first][len][sum] = 첫째 항이 first이고 길이가 len인 수열의 합을 sum으로 만들 수 있는 수열의 개수
+</code></pre>
+
+<p>풀이는 <a href="https://am003507.tistory.com/193">여기</a> 를 공부해서 간신히 이해했다. 여기서 내가 이해하지 못했던 부분은 재귀함수의 기저사례인데, <code>first&lt;=sum</code> 일 때 수열을 만들 수 있다고 정의했다. 계속 고민하다 보니 첫째 항이 현재 남은 합보다 작다면 나머지로 그 합을 채울 수 있을 테니까 기저사례가 맞다..!</p>
+
+<p>이제 트래킹을 하면 되는데 트래킹을 할 땐 2가지 경우로 나눠야 한다. <code>first</code> 를 채택하는 경우와 그렇지 않은 경우로 나눠서 &ldquo;오름차순&rdquo; 이라는 특성에 맞게 재귀함수를 호출하면 된다. 또한 특이했던 점은 dp 값을 계산하는 타이밍이 트래킹을 할 때라는 것이었는데 트래킹을 하면서 <code>first</code> 를 채택했을 때의 수열의 개수를 보기 위해 그 때마다 dp 함수를 호출해주었다. 트래킹의 기저사례는 역시 dp의 기저사례와 동일하게 길이가 1이 되었을 때 <code>sum</code> 을 리턴해주면 된다.</p>
+
+<pre><code class="language-c++">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int dp[221][11][221];
+vector&lt;int&gt; ans;
+
+int solve(int first, int len, int sum)
+{
+    if(len == 1) return first&lt;=sum;
+    int &amp;ret = dp[first][len][sum];
+    if(ret != -1) return ret;
+    ret = 0;
+    for(int i=first; i&lt;=sum; i++)
+        ret += solve(i,len-1,sum-i);
+    return ret;
+}
+
+void track(int first, int len, int sum, int order)
+{
+    if(len == 1){
+        ans.push_back(sum);
+        return;
+    }
+    int ret = solve(first,len-1,sum-first);
+  	// 첫번째를 채택한 경우
+    if(ret &gt;= order){
+        ans.push_back(first);
+        track(first,len-1,sum-first,order);
+    }
+  	// 첫번째를 채택하지 않은 경우
+  	else {
+        track(first+1,len,sum,order-ret);
+    }
+}
+
+int main(void)
+{
+    int n,m,k;
+    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;k);
+    memset(dp,-1,sizeof(dp));
+    track(1,n,m,k);
+    for(int i=0; i&lt;ans.size(); i++) 
+        printf(&quot;%d &quot;,ans[i]);
+    puts(&quot;&quot;);
+    return 0;
+}
+</code></pre>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fbaeharam.github.io%2fposts%2fps%2fps-boj2291%2f&t=%5bPS%5d%20BOJ2291%3a%20Sequence"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fps%2fps-boj2291%2f&text=%5bPS%5d%20BOJ2291%3a%20Sequence&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fps%2fps-boj2291%2f&title=%5bPS%5d%20BOJ2291%3a%20Sequence"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fps%2fps-boj2291%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:hisfedev@gmail.com">배하람</a>
+      
+      님이
+      <span class="highlight">2019년 07월 23일 09시 33분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_카테고리</span>
+        
+        
+        <a href="https://baeharam.github.io/categories/ps">#PS</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_태그</span>
+        
+        
+        <a href="https://baeharam.github.iotags/ps">#PS</a>
+        
+        <a href="https://baeharam.github.iotags/boj2291">#BOJ2291</a>
+        
+        <a href="https://baeharam.github.iotags/sequence">#Sequence</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <script src="https://utteranc.es/client.js"
+        repo="baeharam/blog-comments"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+  </script>
+  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://baeharam.github.io/posts/javascript/js-symbol/" rel="prev">
+          <span>[Javascript] Symbol</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://baeharam.github.io/posts/ps/ps-boj1949/" rel="next">
+          <span>[PS] BOJ1949: 우수마을</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+</footer>
+</body>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+</html>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>You Don&#39;t Know JS on 배하람 블로그</title>
+    <link>https://baeharam.github.io/tags/you-dont-know-js/</link>
+    <description>Recent content in You Don&#39;t Know JS on 배하람 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
+    <webMaster>hisfedev@gmail.com (배하람)</webMaster>
+    <lastBuildDate>Wed, 28 Aug 2019 20:39:12 +0900</lastBuildDate>
+    
+	<atom:link href="https://baeharam.github.io/tags/you-dont-know-js/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Javascript] You Don&#39;t Know JS: 타입과 값</title>
+      <link>https://baeharam.github.io/posts/javascript/jsyou-dont-know-js-value-and-type/</link>
+      <pubDate>Wed, 28 Aug 2019 20:39:12 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/posts/javascript/jsyou-dont-know-js-value-and-type/</guid>
+      <description>특이한 typeof typeof 연산자는 피연산자의 타입을 문자열 형태로 리턴하는 연산자이며 여러가지 특이한 부분이 있다.
+typeof null; // object typeof undefined; // undefined typeof function(){} // function typeof [] // object  제일 특이한 부분이 null 값의 타입이 object 라는 것이며 이는 falsy 한 값이기 때문에 다음과 같이 확인하는 것이 정확하다.
+var a = null; (!a &amp;amp;&amp;amp; typeof a === &#39;object&#39;); // true  선언되지 않은 것 vs 정의되지 않은 것 Undeclared(선언되지 않은 것)과 undefined(정의되지 않은 것)는 완전히 다른 개념이다.</description>
+    </item>
+    
+  </channel>
+</rss>

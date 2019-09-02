@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IntersectionObserver on 배하람 블로그</title>
+    <link>https://baeharam.github.io/tags/intersectionobserver/</link>
+    <description>Recent content in IntersectionObserver on 배하람 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
+    <webMaster>hisfedev@gmail.com (배하람)</webMaster>
+    <lastBuildDate>Wed, 21 Aug 2019 14:21:16 +0900</lastBuildDate>
+    
+	<atom:link href="https://baeharam.github.io/tags/intersectionobserver/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Javascript] Intersection Observer API</title>
+      <link>https://baeharam.github.io/posts/javascript/jsintersectionobserver/</link>
+      <pubDate>Wed, 21 Aug 2019 14:21:16 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/posts/javascript/jsintersectionobserver/</guid>
+      <description>스크롤에 따른 효과를 어떻게 줄 수 있을까? 웹 개발을 하다보면 사용자가 스크롤 하는 상태에 따라서 현재 보여지는 뷰포트에 가시적으로 어떤 엘리먼트가 나타나는지 확인하고 싶을 때가 있다. ScrollReveal 사이트와 같은 효과를 주고 싶을 때 특히 유용한데 보통 서서히 나타나는 fade-in 효과나 서서히 사라지는 fade-out 효과를 주고는 한다.
+그렇다면 이런 효과를 주기 위해선 꼭 라이브러리를 사용해야 할까? 물론 똑똑한 사람들이 잘 만들어 놓은 라이브러리는 상당히 많다. 하지만 역시나 라이브러리를 쓰게 되면 용량이 많아지고 사용하지 않는 기능들도 가지고 있어야 하는 단점이 있다.</description>
+    </item>
+    
+  </channel>
+</rss>

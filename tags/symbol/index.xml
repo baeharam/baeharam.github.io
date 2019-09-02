@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Symbol on 배하람 블로그</title>
+    <link>https://baeharam.github.io/tags/symbol/</link>
+    <description>Recent content in Symbol on 배하람 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
+    <webMaster>hisfedev@gmail.com (배하람)</webMaster>
+    <lastBuildDate>Fri, 19 Jul 2019 20:25:19 +0900</lastBuildDate>
+    
+	<atom:link href="https://baeharam.github.io/tags/symbol/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Javascript] Symbol</title>
+      <link>https://baeharam.github.io/posts/javascript/js-symbol/</link>
+      <pubDate>Fri, 19 Jul 2019 20:25:19 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/posts/javascript/js-symbol/</guid>
+      <description>개요 Symbol은 ES6에서 새로나온 원시타입(Primitive Type)으로 기존 6가지 타입에 추가된 것이다. Symbol이 필요한 이유는 객체내의 고유한 키값을 갖는 프로퍼티를 정의하기 위함이다. 이 특성이 필요한 이유는 특정 애니메이션이나 로직을 캐치하기 위해 플래그(Flag)를 설정할 때 기존 방법들(불리안 값, 난수, 등)에 문제가 있기 때문이다.
+생성 Symbol을 생성할 때는 타입이기 때문에 new 를 생략한다.
+let symbol = Symbol();  이로써 새로운 Symbol이 생성된 것이며 이를 객체의 프로퍼티 명으로 설정할 경우 어떠한 프로퍼티와도 충돌하지 않는다.</description>
+    </item>
+    
+  </channel>
+</rss>
