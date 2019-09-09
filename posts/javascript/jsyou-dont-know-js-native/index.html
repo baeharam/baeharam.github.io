@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Javascript] You Don&#39;t Know JS: 네이티브  | 배하람 블로그</title>
+  <meta name="description" content="개발을 기록하는 블로그 '[Javascript] You Don&#39;t Know JS: 네이티브'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[Javascript] You Don&#39;t Know JS: 네이티브">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-08-28">
+  
+  <meta property="og:description" content="개발을 기록하는 블로그 '[Javascript] You Don&#39;t Know JS: 네이티브'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://baeharam.github.io/posts/javascript/jsyou-dont-know-js-native/">
+  <meta property="og:site_name" content="배하람 블로그">
+  
+  <meta property="og:image" content="https://baeharam.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="Javascript">
+  
+  <meta property="og:tags" content="You Don&#39;t Know JS">
+  
+  <meta property="og:tags" content="네이티브">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://baeharam.github.io/posts/javascript/jsyou-dont-know-js-native/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144188943-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-144188943-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144188943-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+<body>
+  <div class="navbar">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">배하람 블로그</a></li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>       
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/javascript/jsyou-dont-know-js-native/">
+      <div class="post-meta">
+        <time>2019년 08월 28일 20시 39분</time>
+        <h1>[Javascript] You Don&#39;t Know JS: 네이티브</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    
+
+<h2 id="네이티브-native-의-정의">네이티브(Native)의 정의</h2>
+
+<p>이 책을 공부하면서 &ldquo;네이티브&rdquo;라고 불리는 것이 있다는 것을 처음 알았다. JS에서 네이티브란 다음을 일컫는 용어이다.</p>
+
+<blockquote>
+<p>Object in an ECMAScript implementation whose semantics are fully defined by this specification rather than by the host environment.</p>
+
+<p>특정 환경(브라우저, 운영체제 등)에 종속되지 않은, ECMAScript 명세의 내장 객체</p>
+</blockquote>
+
+<p>즉 기존에 JS 명세에서 정의하고 있는 내장 함수인 셈이다. 네이티브와는 다르게 환경에 종속되는 것은 호스트 객체(Host Object)라고 하는데 DOM,BOM과 같은 것들을 조작할 때 사용하는 객체가 이에 속한다. 네이티브의 종류로는 Object, String, Number, Boolean, 등이 있으며 앞으로 이것들의 특징에 대해 살펴보기로 한다.</p>
+
+<h2 id="class">[[Class]]</h2>
+
+<p><code>typeof</code> 연산자를 적용하여 그 값이 <code>object</code> 라면 내부 프로퍼티로 <code>[[Class]]</code> 라는 프로퍼티를 갖는다. 이는 <code>Object.prototype.toString()</code> 메소드를 통해서 확인할 수 있다.</p>
+
+<pre><code class="language-javascript">Object.prototype.toString.call([1,2,3]); // [object Array]
+Object.prototype.toString.call(/regex-literal/i); // [object RegExp]
+Object.prototype.toString.call(null); // [object Null]
+Object.prototype.toString.call(undefined); // [object Undefined]
+</code></pre>
+
+<p><code>[[Class]]</code> 프로퍼티는 내장 네이티브 생성자를 가리키는 것이 보통이지만 <code>null</code> 과 <code>undefined</code> 처럼 그렇지 않을 때도 있으며 원시값의 경우엔 <strong>래퍼객체(Wrapper Object)</strong> 로 <strong>박싱(Boxing)</strong> 하는 과정을 거치게 된다. (여기서 말하는 래퍼객체란 네이티브 객체를 말한다.)</p>
+
+<pre><code class="language-javascript">Object.prototype.toString.call(&quot;abc&quot;); // [object String]
+Object.prototype.toString.call(3); // [object Number]
+Object.prototype.toString.call(false); // [object Boolean]
+</code></pre>
+
+<p>JS 엔진이 원시값을 알아서 객체 래퍼로 박싱하기 때문에 내장 네이티브 생성자가 자동으로 쓰이게 되는 것이다. 박싱의 개념이 이해가 안돼서 조금 더 찾아보니 엔진이 자동으로 박싱할 때는 2가지 경우이다. (<a href="https://stackoverflow.com/a/17217024/11789111">SO 질문</a>)</p>
+
+<ul>
+<li><code>call()</code> 이나 <code>apply()</code> 의 첫번째 인자로 넘길 때 <code>this</code> 키워드를 사용해야 하므로 객체래퍼로 박싱한다.</li>
+<li>원시값에 해당하는 객체래퍼의 프로퍼티에 접근할 때.</li>
+</ul>
+
+<h2 id="네이티브를-생성자로-사용해도-괜찮을까">네이티브를 생성자로 사용해도 괜찮을까?</h2>
+
+<p>네이티브 객체는 래퍼객체로 박싱하는 생성자 함수로 사용될 수도 있는데 이는 수많은 오류를 야기시킬 수 있기 때문에 특별한 경우를 제외하고는 <strong>결코 권장되지 않는 방법이다.</strong></p>
+
+<ul>
+<li><code>Array()</code> 는 그냥 사용하지 말자, 인자를 전달하게 되면 브라우저마다 다른 값을 도출시킬 수 있다.</li>
+<li><code>Object()</code> 는 굳이 사용할 일이 없다.</li>
+<li><code>Function()</code> 은 함수의 인자나 내용을 동적으로 정의해야 할 때 사용되는데 거의 그럴일이 없다.</li>
+<li><code>RegExp()</code> 는 정규표현식을 동적으로 정의할 때 유용하다. 그러나 그런 경우가 아니라면 리터럴로 정의하는 것이 <strong>성능면에서 이득이다.</strong></li>
+<li><code>Date()</code>, <code>Error()</code>, <code>Symbol()</code> 은 원시값이 없고 용도에 맞게 잘 사용하면 된다.</li>
+</ul>
+
+<h2 id="네이티브-프로토타입">네이티브 프로토타입</h2>
+
+<p>내장 네이티브 생성자는 각각의 프로토타입 객체를 가지는데 2가지를 꼭 기억하자.</p>
+
+<ul>
+<li>네이티브 프로토타입을 절대로 변경하지 말자. 예기치 못한 상황이 발생할 수 있다.</li>
+<li>네이티브 프로토타입은 <strong>디폴트 값</strong> 이다.
+
+<ul>
+<li><code>Function.prototype</code> 은 빈 함수이다.</li>
+<li><code>RegExp.prototype</code> 은 빈 정규식이다.</li>
+<li><code>Array.prototype</code> 은 빈 배열이다.</li>
+</ul></li>
+</ul>
+
+<p>네이티브 프로토타입이 디폴트라는 것을 활용하면 디폴트 값을 리터럴로 사용하는 것에 비해 성능적인 이점을 얻을 수 있다. 이유는 내장된 상태이므로 단 한 번만 생성된다는 것이다. 아래와 같이 사용할 수 있다.</p>
+
+<pre><code class="language-javascript">function nativePrototype(arr, fn, rx){
+  arr = arr || Array.prototype;
+  fn = fn || Function.prototype;
+  rx = rx || RegExp.prototype;
+  ....
+}
+</code></pre>
+
+<h2 id="참조">참조</h2>
+
+<ul>
+<li><a href="https://github.com/getify/You-Dont-Know-JS">You Don&rsquo;t Know JS</a></li>
+</ul>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2fjsyou-dont-know-js-native%2f&t=%5bJavascript%5d%20You%20Don%27t%20Know%20JS%3a%20%eb%84%a4%ec%9d%b4%ed%8b%b0%eb%b8%8c"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2fjsyou-dont-know-js-native%2f&text=%5bJavascript%5d%20You%20Don%27t%20Know%20JS%3a%20%eb%84%a4%ec%9d%b4%ed%8b%b0%eb%b8%8c&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2fjsyou-dont-know-js-native%2f&title=%5bJavascript%5d%20You%20Don%27t%20Know%20JS%3a%20%eb%84%a4%ec%9d%b4%ed%8b%b0%eb%b8%8c"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2fjsyou-dont-know-js-native%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:hisfedev@gmail.com">배하람</a>
+      
+      님이
+      <span class="highlight">2019년 08월 28일 20시 39분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_카테고리</span>
+        
+        
+        <a href="https://baeharam.github.io/categories/javascript">#Javascript</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_태그</span>
+        
+        
+        <a href="https://baeharam.github.iotags/javascript">#Javascript</a>
+        
+        <a href="https://baeharam.github.iotags/you-dont-know-js">#You Don&#39;t Know JS</a>
+        
+        <a href="https://baeharam.github.iotags/%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C">#네이티브</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <script src="https://utteranc.es/client.js"
+        repo="baeharam/blog-comments"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+  </script>
+  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://baeharam.github.io/posts/javascript/jsyou-dont-know-js-value-and-type/" rel="prev">
+          <span>[Javascript] You Don&#39;t Know JS: 타입과 값</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+</footer>
+</body>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+</html>
+
