@@ -3,32 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://baeharam.github.io/tags/call-stack/</loc>
+    <lastmod>2019-09-28T16:43:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/tags/callback-queue/</loc>
+    <lastmod>2019-09-28T16:43:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://baeharam.github.io/categories/</loc>
-    <lastmod>2019-08-28T20:39:12+09:00</lastmod>
+    <lastmod>2019-09-28T16:43:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/tags/event-loop/</loc>
+    <lastmod>2019-09-28T16:43:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://baeharam.github.io/categories/javascript/</loc>
-    <lastmod>2019-08-28T20:39:12+09:00</lastmod>
+    <lastmod>2019-09-28T16:43:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://baeharam.github.io/tags/javascript/</loc>
-    <lastmod>2019-08-28T20:39:12+09:00</lastmod>
+    <lastmod>2019-09-28T16:43:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://baeharam.github.io/posts/</loc>
-    <lastmod>2019-08-28T20:39:12+09:00</lastmod>
+    <lastmod>2019-09-28T16:43:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://baeharam.github.io/tags/</loc>
-    <lastmod>2019-08-28T20:39:12+09:00</lastmod>
+    <lastmod>2019-09-28T16:43:33+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/posts/javascript/jshow-javascript-works/</loc>
+    <lastmod>2019-09-28T16:43:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://baeharam.github.io/</loc>
+    <lastmod>2019-09-28T16:43:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -50,12 +79,6 @@
   
   <url>
     <loc>https://baeharam.github.io/tags/%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C/</loc>
-    <lastmod>2019-08-28T20:39:12+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://baeharam.github.io/</loc>
     <lastmod>2019-08-28T20:39:12+09:00</lastmod>
     <priority>0</priority>
   </url>
