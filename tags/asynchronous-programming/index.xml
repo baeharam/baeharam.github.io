@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asynchronous Programming on 배하람 블로그</title>
+    <link>https://baeharam.github.io/tags/asynchronous-programming/</link>
+    <description>Recent content in Asynchronous Programming on 배하람 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
+    <webMaster>hisfedev@gmail.com (배하람)</webMaster>
+    <lastBuildDate>Thu, 07 Nov 2019 16:00:20 +0900</lastBuildDate>
+    
+	<atom:link href="https://baeharam.github.io/tags/asynchronous-programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Javascript] 비동기 처리는 어떻게 할까?</title>
+      <link>https://baeharam.github.io/posts/javascript/%EB%B9%84%EB%8F%99%EA%B8%B0%EC%B2%98%EB%A6%AC/</link>
+      <pubDate>Thu, 07 Nov 2019 16:00:20 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/posts/javascript/%EB%B9%84%EB%8F%99%EA%B8%B0%EC%B2%98%EB%A6%AC/</guid>
+      <description>동기와 비동기 Stackoverflow 의 비유를 보자.
+ 동기
+영화티켓을 사려고 줄을 서고 있다. 당신은 앞의 사람들이 모두 티켓을 사기 전까지는 티켓을 살 수 없고 이 논리는 당신의 뒤에 있는 사람들에게도 적용된다.
+비동기
+당신은 레스토랑에 많은 사람들과 있다. 음식을 주문한다. 다른 사람들도 음식을 주문할 수 있지만, 그들이 당신의 음식이 요리되고 서빙될 때까지 기다릴 필요는 없다. 주방에서 요리사들이 계속해서 요리하고, 서빙하고 주문을 받기 때문이다. 사람들은 요리되자마자 음식을 받을 수 있다.
+ 즉, 동기란 앞의 작업의 실행시간에 상관없이 끝날 때까지 기다리는 것이며 비동기란 앞의 작업이 오래 걸린다면 그걸 하는 동안 그 다음 작업을 수행하는 것이다.</description>
+    </item>
+    
+  </channel>
+</rss>
