@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Javascript] 비동기 처리는 어떻게 할까?  | 배하람 블로그</title>
+  <meta name="description" content="개발을 기록하는 블로그 '[Javascript] 비동기 처리는 어떻게 할까?'을 한 번 살펴보세요.">
+  <meta property="og:title" content="[Javascript] 비동기 처리는 어떻게 할까?">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-11-07">
+  
+  <meta property="og:description" content="개발을 기록하는 블로그 '[Javascript] 비동기 처리는 어떻게 할까?'을 한 번 살펴보세요.">
+  <meta property="og:url" content="https://baeharam.github.io/posts/javascript/%EB%B9%84%EB%8F%99%EA%B8%B0%EC%B2%98%EB%A6%AC/">
+  <meta property="og:site_name" content="배하람 블로그">
+  
+  <meta property="og:image" content="https://baeharam.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="Javascript">
+  
+  <meta property="og:tags" content="Asynchronous Programming">
+  
+  <meta property="og:tags" content="Promise">
+  
+  <meta property="og:tags" content="async">
+  
+  <meta property="og:tags" content="await">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://baeharam.github.io/posts/javascript/%EB%B9%84%EB%8F%99%EA%B8%B0%EC%B2%98%EB%A6%AC/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144188943-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-144188943-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-144188943-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</head>
+<body>
+  <div class="navbar">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> 메뉴
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">배하람 블로그</a></li>
+        <li><a href="/categories">카테고리</a></li>
+        <li><a href="/tags">태그</a></li>       
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="검색어" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://baeharam.github.io/posts/javascript/%EB%B9%84%EB%8F%99%EA%B8%B0%EC%B2%98%EB%A6%AC/">
+      <div class="post-meta">
+        <time>2019년 11월 07일 16시 00분</time>
+        <h1>[Javascript] 비동기 처리는 어떻게 할까?</h1>
+      </div>
+    </a>
+  </div>
+  <section class="post-content">
+    
+
+<h2 id="동기와-비동기">동기와 비동기</h2>
+
+<p><a href="https://stackoverflow.com/a/26804844/11789111">Stackoverflow</a> 의 비유를 보자.</p>
+
+<blockquote>
+<p><strong>동기</strong></p>
+
+<p>영화티켓을 사려고 줄을 서고 있다. 당신은 앞의 사람들이 <strong>모두 티켓을 사기 전까지는 티켓을 살 수 없고</strong> 이 논리는 당신의 뒤에 있는 사람들에게도 적용된다.</p>
+
+<p><strong>비동기</strong></p>
+
+<p>당신은 레스토랑에 많은 사람들과 있다. 음식을 주문한다. 다른 사람들도 음식을 주문할 수 있지만, 그들이 당신의 음식이 요리되고 서빙될 때까지 <strong>기다릴 필요는 없다.</strong> 주방에서 요리사들이 계속해서 요리하고, 서빙하고 주문을 받기 때문이다. 사람들은 요리되자마자 음식을 받을 수 있다.</p>
+</blockquote>
+
+<p>즉, 동기란 앞의 작업의 실행시간에 상관없이 끝날 때까지 기다리는 것이며 비동기란 앞의 작업이 오래 걸린다면 그걸 하는 동안 그 다음 작업을 수행하는 것이다.</p>
+
+<p><br></p>
+
+<h2 id="비동기-함수">비동기 함수</h2>
+
+<p>모두가 가장 잘 아는 대표적인 비동기 함수는 역시 Web API에서 제공하는 <code>setTimeout()</code> 이다.</p>
+
+<pre><code class="language-javascript">console.log('first');
+setTimeout(() =&gt; console.log('third'), 3000);
+console.log('second');
+</code></pre>
+
+<pre><code>first
+second
+third
+</code></pre>
+
+<p>짜여진 코드의 순서대로 동작하지 않고 그 다음인 <code>second</code> 부터 출력함을 알 수 있다. 하지만 여기서 <code>setTimeout()</code> 의 실행이 끝나고 1초 뒤에 콘솔에 출력하고 싶다면 어떻게 해야 할까?</p>
+
+<pre><code class="language-javascript">console.log('first');
+setTimeout(() =&gt; console.log('third'), 3000);
+setTimeout(() =&gt; console.log('second'), 4000);
+</code></pre>
+
+<p>이런 식으로 시간을 계산해서 지정할 수 있다. 하지만 직관적이지 않기 때문에 로직이 복잡하게 되면 이해하기 힘들 수 있다. 따라서 이런 로직을 좀 더 명확하게 구현하는 방법을 알아보자.</p>
+
+<p><br></p>
+
+<h2 id="1-콜백함수">1. 콜백함수</h2>
+
+<p>콜백함수를 연쇄적으로 활용하면 된다.</p>
+
+<pre><code class="language-javascript">console.log('first');
+setTimeout(() =&gt; {
+  console.log('second');
+  setTimeout(() =&gt; {
+    console.log('third');
+  }, 1000);
+}, 3000);
+</code></pre>
+
+<p>순서가 보장되기는 하지만 콜백함수가 많아지게 되면 흔히 말하는 <strong>&ldquo;콜백 지옥(Callback Hell)&rdquo;</strong> 이 형성되기 때문에 가독성이 현저히 떨어진다.</p>
+
+<p><br></p>
+
+<h2 id="2-promise">2. Promise</h2>
+
+<p>Promise는 비동기 처리에 사용되는 객체로 미래에 완성될 작업에 대한 것을 표현한다. ES6(ES2015)부터 도입되었으며 <code>then()</code> 을 통해 작업이 완료되었을 때를 처리하고 <code>catch()</code> 를 통해 작업에서 에러가 발생한 경우를 처리한다.</p>
+
+<pre><code class="language-javascript">const getPromise = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+    xhr.onload = () =&gt; resolve(xhr.responseText);
+    xhr.onerror = () =&gt; reject(xhr.status);
+    xhr.send();
+  });
+};
+
+getPromise()
+  .then((result) =&gt; console.log(result))
+  .catch((error) =&gt; console.log(error));
+</code></pre>
+
+<p>XHR 객체를 활용하여 Ajax 통신을 실행한 경우 비동기로 동작하기 때문에 그걸 Promise 객체로 만들어서 리턴한다. 리턴된 Promise 객체를 활용하여 성공/실패에 대한 처리를 한다. 여기서 <code>resolve()</code> 는 <code>then()</code> 에 전달되는 함수를 가리키며 <code>reject()</code> 는 <code>catch()</code> 에 전달되는 함수를 가리킨다.</p>
+
+<p><br></p>
+
+<h2 id="3-async-await">3. Async / Await</h2>
+
+<p>ES8(ES2017)부터 도입된 키워드로 비동기적으로 생각하기가 낯선 우리들의 사고방식을 조금 더 직관적이고 편하게 만들어주는 방식이다. Promise 예시를 한번 바꿔보면 다음과 같다.</p>
+
+<pre><code class="language-javascript">const getPromise = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+    xhr.onload = () =&gt; resolve(xhr.responseText);
+    xhr.onerror = () =&gt; reject(xhr.status);
+    xhr.send();
+  });
+};
+
+const execute = async () =&gt; {
+  const result = await getPromise();
+  console.log(result);
+};
+execute();
+</code></pre>
+
+<p>결과는 같으며 훨씬 직관적이라는 것을 알 수 있다. <code>await</code> 은 해당 작업을 기다리는 것이며 완료된 작업을 <code>result</code> 로 받아 <code>console.log()</code> 로 resolve 시키는 방식이다. 하지만 여기선 reject가 보이지 않는데, 예외처리를 Promise와는 다르게 <code>try~catch</code> 를 활용하기 때문이다. 에러 핸들링을 보기 위해선 새로운 코드를 보도록 하자.</p>
+
+<pre><code class="language-javascript">const getPromise = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    reject();
+  });
+};
+
+const execute = async () =&gt; {
+  try {
+    const result = await getPromise();
+    console.log(result);
+  } catch(error) {
+    console.log('Wow error!!!!');
+  }
+};
+</code></pre>
+
+<pre><code>Wow error!!!!!
+</code></pre>
+
+<p><code>getPromise()</code> 내에서 바로 <code>reject()</code> 를 실행시키니 <code>catch()</code> 문의 코드가 실행되는 것을 볼 수 있다. 이로써 이 키워드들 또한 에러 핸들링을 할 수 있다는 것을 알았다.</p>
+
+<p><br></p>
+
+<h2 id="마무리">마무리</h2>
+
+<p>이렇게 비동기 작업을 처리하는 방법들에 대해 배워봤는데, 상황에 따라서 각각 다른 방법을 사용하는 것이 맞다고 본다. 제일 편한 것은 async/await 이지만 ES8이기 때문에 지원하는 브라우저가 많지 않다. 따라서, 모든 방법들에 대해 알고는 있자.</p>
+
+<p><br></p>
+
+<h2 id="참조">참조</h2>
+
+<ul>
+<li><a href="https://alligator.io/js/async-functions/">Exploring Async/Await Functions in JavaScript</a></li>
+<li><a href="https://joshua1988.github.io/web-development/javascript/js-async-await/">자바스크립트 async와 await</a></li>
+<li><a href="https://www.youtube.com/watch?v=JzXjB6L99N4">자바스크립트 async / await? 나도 써보자, 기본 개념부터~</a></li>
+</ul>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2f%25EB%25B9%2584%25EB%258F%2599%25EA%25B8%25B0%25EC%25B2%2598%25EB%25A6%25AC%2f&t=%5bJavascript%5d%20%eb%b9%84%eb%8f%99%ea%b8%b0%20%ec%b2%98%eb%a6%ac%eb%8a%94%20%ec%96%b4%eb%96%bb%ea%b2%8c%20%ed%95%a0%ea%b9%8c%3f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2f%25EB%25B9%2584%25EB%258F%2599%25EA%25B8%25B0%25EC%25B2%2598%25EB%25A6%25AC%2f&text=%5bJavascript%5d%20%eb%b9%84%eb%8f%99%ea%b8%b0%20%ec%b2%98%eb%a6%ac%eb%8a%94%20%ec%96%b4%eb%96%bb%ea%b2%8c%20%ed%95%a0%ea%b9%8c%3f&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2f%25EB%25B9%2584%25EB%258F%2599%25EA%25B8%25B0%25EC%25B2%2598%25EB%25A6%25AC%2f&title=%5bJavascript%5d%20%eb%b9%84%eb%8f%99%ea%b8%b0%20%ec%b2%98%eb%a6%ac%eb%8a%94%20%ec%96%b4%eb%96%bb%ea%b2%8c%20%ed%95%a0%ea%b9%8c%3f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fbaeharam.github.io%2fposts%2fjavascript%2f%25EB%25B9%2584%25EB%258F%2599%25EA%25B8%25B0%25EC%25B2%2598%25EB%25A6%25AC%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      
+      <a href="mailto:hisfedev@gmail.com">배하람</a>
+      
+      님이
+      <span class="highlight">2019년 11월 07일 16시 00분</span> 
+      에 작성한 글입니다.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_카테고리</span>
+        
+        
+        <a href="https://baeharam.github.io/categories/javascript">#Javascript</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_태그</span>
+        
+        
+        <a href="https://baeharam.github.iotags/javascript">#Javascript</a>
+        
+        <a href="https://baeharam.github.iotags/asynchronous-programming">#Asynchronous Programming</a>
+        
+        <a href="https://baeharam.github.iotags/promise">#Promise</a>
+        
+        <a href="https://baeharam.github.iotags/async">#async</a>
+        
+        <a href="https://baeharam.github.iotags/await">#await</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <script src="https://utteranc.es/client.js"
+        repo="baeharam/blog-comments"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+  </script>
+  
+  <div class="recommend-articles">
+    다음으로 읽을만한 글입니다.
+    <ul>
+      
+      <li>
+        <a href="https://baeharam.github.io/posts/javascript/jshow-javascript-works/" rel="prev">
+          <span>[Javascript] 자바스크립트는 어떻게 동작할까?</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>위로</span>
+  </a>
+</div>
+<footer class="footer">
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+</footer>
+</body>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+</html>
+

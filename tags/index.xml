@@ -8,10 +8,55 @@
     <language>ko-KR</language>
     <managingEditor>hisfedev@gmail.com (배하람)</managingEditor>
     <webMaster>hisfedev@gmail.com (배하람)</webMaster>
-    <lastBuildDate>Sat, 28 Sep 2019 16:43:33 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 07 Nov 2019 16:00:20 +0900</lastBuildDate>
     
 	<atom:link href="https://baeharam.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Asynchronous Programming</title>
+      <link>https://baeharam.github.io/tags/asynchronous-programming/</link>
+      <pubDate>Thu, 07 Nov 2019 16:00:20 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/tags/asynchronous-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://baeharam.github.io/tags/javascript/</link>
+      <pubDate>Thu, 07 Nov 2019 16:00:20 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Promise</title>
+      <link>https://baeharam.github.io/tags/promise/</link>
+      <pubDate>Thu, 07 Nov 2019 16:00:20 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/tags/promise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>async</title>
+      <link>https://baeharam.github.io/tags/async/</link>
+      <pubDate>Thu, 07 Nov 2019 16:00:20 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/tags/async/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>await</title>
+      <link>https://baeharam.github.io/tags/await/</link>
+      <pubDate>Thu, 07 Nov 2019 16:00:20 +0900</pubDate>
+      <author>hisfedev@gmail.com (배하람)</author>
+      <guid>https://baeharam.github.io/tags/await/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Call stack</title>
@@ -37,15 +82,6 @@
       <pubDate>Sat, 28 Sep 2019 16:43:33 +0900</pubDate>
       <author>hisfedev@gmail.com (배하람)</author>
       <guid>https://baeharam.github.io/tags/event-loop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Javascript</title>
-      <link>https://baeharam.github.io/tags/javascript/</link>
-      <pubDate>Sat, 28 Sep 2019 16:43:33 +0900</pubDate>
-      <author>hisfedev@gmail.com (배하람)</author>
-      <guid>https://baeharam.github.io/tags/javascript/</guid>
       <description></description>
     </item>
     
