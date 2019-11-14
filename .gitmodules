@@ -2,3 +2,7 @@
 	path = Redvelvet-Fansite
 	url = https://github.com/baeharam/Redvelvet-Fansite
     branch = master
+[submodule "Vanilla-Joker"]
+	path = Vanilla-Joker
+	url = https://github.com/baeharam/Vanilla-Joker
+    branch = master
